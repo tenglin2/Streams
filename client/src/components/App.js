@@ -10,7 +10,7 @@ import StreamShow from './streams/StreamShow';
 
 const App = function() {
   return (
-    <div>
+    <div className='ui container'>
       <BrowserRouter>
         <h1>HEADER VISIBLE IN EVERY ROUTE</h1>
         <div>
