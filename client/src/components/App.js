@@ -1,6 +1,7 @@
 import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
+import Header from './Header';
 import StreamList from './streams/StreamList';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
@@ -13,6 +14,7 @@ const App = function() {
       <BrowserRouter>
         <h1>HEADER VISIBLE IN EVERY ROUTE</h1>
         <div>
+          <Header />
           <Route exact={true} path='/' component={StreamList} />
           <Route exact={true} path='/streams/new' component={StreamCreate} />
           <Route exact={true} path='/streams/edit' component={StreamEdit} />
@@ -26,7 +28,7 @@ const App = function() {
 
 export default App;
 
-// We need to nest the App inside of a BrowserRouter which we usually nest in a BrowserRouter tag.
+// We need to nest the App https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.cssinside of a BrowserRouter which we usually nest in a BrowserRouter tag.
 // React native also has a react-router-native which basically does the exact same thing.
 // Also ther is react-router-redux which is not really necessary. Similar to the other package of react-redux. Not recommended by anyone.
 
