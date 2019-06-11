@@ -11,6 +11,7 @@ import StreamShow from './streams/StreamShow';
 const App = function() {
   return (
     <div className='ui container'>
+      <h2>Somethign show up</h2>
       <BrowserRouter>
         <h1>HEADER VISIBLE IN EVERY ROUTE</h1>
         <div>
@@ -35,3 +36,6 @@ export default App;
 // The react router dom package does not show up in the package.json file for some reason, but it does auto complete on import.
 
 // It looks like the problem was the directory that I was in. The root folder does not have npm intialized but the client folder already comes with create-react-app.
+
+
+// 458417327849-bkj3e1hfe5bmsjtkq6dj4ld1lfk89hj7.apps.googleusercontent.com
