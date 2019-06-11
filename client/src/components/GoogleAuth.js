@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions/actions';
 
 class GoogleAuth extends React.Component {
-  state = {isSignedIn: null};
-  
   componentDidMount() {
     window.gapi.load('client:auth2', () => {
       window.gapi.client.init({
@@ -13,9 +11,10 @@ class GoogleAuth extends React.Component {
       }).then(() => {
         this.auth = window.gapi.auth2.getAuthInstance();
         
-        this.setState({
-          isSignedIn: this.auth.isSignedIn.get()
-        });
+        // Since we use mapStateToProp is this.props.isSignedIn valid replacement?
+        this.onAuthChange(this.auth.isSignedIn.get());
+        
+        // Look up listen method because it's weird. Automatically gets a parameter?
         this.auth.isSignedIn.listen(this.onAuthChange);
       });
     });
@@ -30,18 +29,20 @@ class GoogleAuth extends React.Component {
   };
 
   onSignInClick = (event) => {
+    console.log(event.target);
     this.auth.signIn();
   };
 
   onSignOutClick = (event) => {
+    console.log(event.target);
     this.auth.signOut();
   };
   
   renderAuthButton() {
-    console.log(`the status is ${this.state.isSignedIn}`)
-    if (this.state.isSignedIn === null) {
+    console.log(`the status is ${this.props.isSignedIn}`)
+    if (this.props.isSignedIn === null) {
       return null;
-    } else if (this.state.isSignedIn) {
+    } else if (this.props.isSignedIn) {
       return (
         <button onClick={this.onSignOutClick} className='ui red google button'>
           <i className='google icon' />
@@ -67,12 +68,11 @@ class GoogleAuth extends React.Component {
   }
 }
 
-const mapStateToProps = null;
-
-const mapDispatchToProps = {
-  signIn: signIn,
-  signOut: signOut
+const mapStateToProps = (state) => {
+  return ({
+    isSignedIn: state.auth.isSignedIn
+  });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth);
 
+export default connect(mapStateToProps, { signIn: signIn, signOut: signOut })(GoogleAuth);

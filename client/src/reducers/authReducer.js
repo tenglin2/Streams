@@ -1,0 +1,15 @@
+const INITIAL_STATE = {
+  isSignedIn: null
+};
+
+export default (state = INITIAL_STATE, action) => {
+  // The state is not a boolean because we want some other stuff.
+  switch (action.type) {
+    case 'SIGN_IN':
+      return { ...state, isSignedIn: true};
+    case 'SIGN_OUT':
+      return { ...state, isSignedIn: false};
+    default:
+      return state;
+  }
+};
