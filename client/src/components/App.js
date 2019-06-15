@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import Header from './Header';
 import StreamList from './streams/StreamList';
@@ -8,11 +8,13 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 
+import history from '../history';
+
 const App = function() {
   return (
     <div className='ui container'>
       <h2>Somethign show up</h2>
-      <BrowserRouter>
+      <Router history={history}>
         <h1>HEADER VISIBLE IN EVERY ROUTE</h1>
         <div>
           <Header />
@@ -22,7 +24,7 @@ const App = function() {
           <Route exact={true} path='/streams/delete' component={StreamDelete} />
           <Route exact={true} path='/streams/show' component={StreamShow} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };
