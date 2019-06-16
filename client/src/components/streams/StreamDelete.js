@@ -11,9 +11,11 @@ class StreamDelete extends React.Component {
   }
   
   renderActions() {
+    const { id } = this.props.match.params;
+    
     return (
       <React.Fragment>
-        <button onClick={} className='ui button negative'>DELETE</button>
+        <button onClick={() => this.props.deleteStream(id) } className='ui button negative'>DELETE</button>
         <Link to='/' className='ui button'>CANCEL</Link>
       </React.Fragment>
     );
@@ -54,4 +56,4 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default connect(mapStateToProps, { fetchStream })(StreamDelete);
+export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete);
