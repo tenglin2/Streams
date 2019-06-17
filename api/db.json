@@ -1,3 +1,52 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "insertion sort",
+      "description": "money",
+      "userId": "109470483681779735086",
+      "id": 1
+    },
+    {
+      "title": "i created this stream",
+      "description": "this was created by me",
+      "userId": "109470483681779735086",
+      "id": 3
+    },
+    {
+      "title": "me streaming comp reuse",
+      "description": "watch refactors please",
+      "userId": "109470483681779735086",
+      "id": 5
+    },
+    {
+      "title": "stable",
+      "description": "staple",
+      "userId": "109470483681779735086",
+      "id": 6
+    },
+    {
+      "title": "Streaming App is Interesting",
+      "description": "Limitation of OBS Software Requirement",
+      "userId": "109470483681779735086",
+      "id": 7
+    },
+    {
+      "title": "React Hooks are Neat",
+      "description": "Recently got support in the Redux side, but will require some testing",
+      "userId": "109470483681779735086",
+      "id": 8
+    },
+    {
+      "title": "Casenova",
+      "description": "fuschia",
+      "userId": "109470483681779735086",
+      "id": 9
+    },
+    {
+      "title": "Complete Authentication",
+      "description": "Using Google OAuth to Check for Validity of Account",
+      "userId": "109470483681779735086",
+      "id": 10
+    }
+  ]
 }
