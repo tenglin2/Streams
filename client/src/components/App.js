@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import Header from './Header';
 import StreamList from './streams/StreamList';
@@ -7,7 +7,6 @@ import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
-
 import history from '../history';
 
 const App = function() {
@@ -18,11 +17,13 @@ const App = function() {
         <h1>HEADER VISIBLE IN EVERY ROUTE</h1>
         <div>
           <Header />
-          <Route exact={true} path='/' component={StreamList} />
-          <Route exact={true} path='/streams/new' component={StreamCreate} />
-          <Route exact={true} path='/streams/edit/:id' component={StreamEdit} />
-          <Route exact={true} path='/streams/delete/:id' component={StreamDelete} />
-          <Route exact={true} path='/streams/show' component={StreamShow} />
+          <Switch>
+            <Route exact={true} path='/' component={StreamList} />
+            <Route exact={true} path='/streams/new' component={StreamCreate} />
+            <Route exact={true} path='/streams/edit/:id' component={StreamEdit} />
+            <Route exact={true} path='/streams/delete/:id' component={StreamDelete} />
+            <Route exact={true} path='/streams/:id' component={StreamShow} />
+          </Switch>
         </div>
       </Router>
     </div>
